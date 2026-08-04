@@ -20,7 +20,8 @@ export default function AccordionSection({ title, icon, defaultOpen = false, chi
           a plain span, not a second interactive control. */}
       <button
         type="button"
-        className="title-bar w-full text-left min-h-[44px]"
+        className="title-bar w-full text-left"
+        style={{ minHeight: 44 }}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >
