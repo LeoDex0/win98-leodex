@@ -1,5 +1,5 @@
-import DesktopView from '@/components/desktop/DesktopView'
+import Desktop from '@/components/desktop/Desktop'
 
 export default function Home() {
-  return <DesktopView />
+  return <Desktop />
 }
