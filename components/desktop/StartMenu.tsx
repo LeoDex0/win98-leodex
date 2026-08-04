@@ -10,6 +10,20 @@ const ITEMS: { id: WindowId; label: string; icon: ReactNode }[] = [
   { id: 'contact', label: 'Contact Me', icon: <IconMail size={20} /> },
 ]
 
+// 98.css styles every bare <button> as a raised 3D button (unlayered CSS,
+// beats Tailwind's layered utilities regardless of specificity). Menu rows
+// need to look like a flat list instead, so the raised-button chrome is
+// reset inline here.
+const flatMenuItemStyle = {
+  background: 'transparent',
+  boxShadow: 'none',
+  minWidth: 0,
+  minHeight: 0,
+  padding: '6px 8px',
+  color: 'inherit',
+  textShadow: 'none',
+} as const
+
 export default function StartMenu({ onClose }: { onClose: () => void }) {
   const open = useWindowManager((s) => s.open)
   const [shutdownJoke, setShutdownJoke] = useState(false)
@@ -22,7 +36,8 @@ export default function StartMenu({ onClose }: { onClose: () => void }) {
             key={item.id}
             type="button"
             role="menuitem"
-            className="flex items-center gap-2 px-2 py-1.5 text-left text-[13px] hover:bg-[var(--dialog-blue)] hover:text-white"
+            className="flex items-center gap-2 w-full text-left text-[13px] hover:bg-[var(--dialog-blue)] hover:text-white"
+            style={flatMenuItemStyle}
             onClick={() => {
               open(item.id)
               onClose()
@@ -39,7 +54,8 @@ export default function StartMenu({ onClose }: { onClose: () => void }) {
           <button
             type="button"
             role="menuitem"
-            className="flex items-center gap-2 px-2 py-1.5 text-left text-[13px] hover:bg-[var(--dialog-blue)] hover:text-white"
+            className="flex items-center gap-2 w-full text-left text-[13px] hover:bg-[var(--dialog-blue)] hover:text-white"
+            style={flatMenuItemStyle}
             onClick={() => setShutdownJoke(true)}
           >
             Shut Down...

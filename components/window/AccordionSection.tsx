@@ -21,7 +21,7 @@ export default function AccordionSection({ title, icon, defaultOpen = false, chi
       <button
         type="button"
         className="title-bar w-full text-left"
-        style={{ minHeight: 44 }}
+        style={{ minHeight: 44, boxShadow: 'none' }}
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
       >

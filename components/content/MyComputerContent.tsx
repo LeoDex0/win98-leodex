@@ -12,6 +12,7 @@ export default function MyComputerContent() {
         type="button"
         onClick={() => open('about')}
         className="flex w-20 flex-col items-center gap-1 text-center"
+        style={{ background: 'transparent', boxShadow: 'none', minWidth: 0, minHeight: 0, padding: 4 }}
       >
         <IconDriveC size={32} />
         <span className="text-[12px] leading-tight">About Me (C:)</span>
@@ -20,6 +21,7 @@ export default function MyComputerContent() {
         type="button"
         onClick={() => open('skills')}
         className="flex w-20 flex-col items-center gap-1 text-center"
+        style={{ background: 'transparent', boxShadow: 'none', minWidth: 0, minHeight: 0, padding: 4 }}
       >
         <IconDriveD size={32} />
         <span className="text-[12px] leading-tight">Skills (D:)</span>
