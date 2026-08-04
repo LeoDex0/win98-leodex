@@ -11,6 +11,8 @@ import AboutContent from '@/components/content/AboutContent'
 import SkillsContent from '@/components/content/SkillsContent'
 import ContactContent from '@/components/content/ContactContent'
 import { IconComputer, IconFolder, IconMail, IconNotepad, IconDriveD } from '@/components/icons/PixelIcons'
+import VisitorCounter from '@/components/easter-eggs/VisitorCounter'
+import ErrorPopup from '@/components/easter-eggs/ErrorPopup'
 
 export default function DesktopView() {
   const open = useWindowManager((s) => s.open)
@@ -40,6 +42,8 @@ export default function DesktopView() {
       </WindowFrame>
 
       <Taskbar />
+      <VisitorCounter />
+      <ErrorPopup />
     </div>
   )
 }
