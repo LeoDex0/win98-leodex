@@ -1,26 +1,63 @@
 @import "tailwindcss";
+@import "98.css/dist/98.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --desktop-teal: #008080;
+  --taskbar-height: 40px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 98.css's compiled dist/98.css inlines every var() it uses internally and
+   drops its own :root custom-property block in the process (confirmed via
+   `grep -c "var(--" node_modules/98.css/dist/98.css` => 0), so none of these
+   survive for our own code to reference. Redefined here, verbatim from
+   node_modules/98.css/style.css lines 7-59, so .win98-btn (below) and later
+   components (taskbar, Start menu, About window menu row) can share the same
+   tokens 98.css's own compiled output uses internally. */
+:root {
+  --text-color: #222222;
+  --surface: #c0c0c0;
+  --button-highlight: #ffffff;
+  --button-face: #dfdfdf;
+  --button-shadow: #808080;
+  --window-frame: #0a0a0a;
+  --dialog-blue: #000080;
+  --border-raised-outer: inset -1px -1px var(--window-frame), inset 1px 1px var(--button-highlight);
+  --border-raised-inner: inset -2px -2px var(--button-shadow), inset 2px 2px var(--button-face);
+  --border-sunken-outer: inset -1px -1px var(--button-highlight), inset 1px 1px var(--window-frame);
+  --border-sunken-inner: inset -2px -2px var(--button-face), inset 2px 2px var(--button-shadow);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+}
+
+/* 98.css only styles bare <button>/input[type=submit] elements with this
+   raised-bevel look. Real <a> links (project/contact "Open" CTAs) need the
+   same treatment applied explicitly so they stay real, crawlable, right-
+   clickable links instead of fake onClick buttons. */
+.win98-btn {
+  display: inline-block;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: transparent;
+  text-shadow: 0 0 var(--text-color);
+  background: var(--surface);
+  box-shadow: var(--border-raised-outer), var(--border-raised-inner);
+  min-width: 75px;
+  min-height: 23px;
+  padding: 4px 12px;
+  text-align: center;
+  font-family: "Pixelated MS Sans Serif", Arial;
+  font-size: 11px;
+}
+
+.win98-btn:active {
+  box-shadow: var(--border-sunken-outer), var(--border-sunken-inner);
+  text-shadow: 1px 1px var(--text-color);
 }
