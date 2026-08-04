@@ -4,6 +4,7 @@ import WindowFrame from '@/components/window/WindowFrame'
 import { useWindowManager } from '@/components/window/useWindowManager'
 import { WINDOW_LAYOUT } from '@/components/window/windowLayout'
 import DesktopIcon from './DesktopIcon'
+import Taskbar from './Taskbar'
 import MyComputerContent from '@/components/content/MyComputerContent'
 import MyWorkContent from '@/components/content/MyWorkContent'
 import AboutContent from '@/components/content/AboutContent'
@@ -37,6 +38,8 @@ export default function DesktopView() {
       <WindowFrame id="contact" title="Send Message" icon={<IconMail size={16} />} {...WINDOW_LAYOUT['contact']}>
         <ContactContent />
       </WindowFrame>
+
+      <Taskbar />
     </div>
   )
 }
