@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import WindowFrame from '@/components/window/WindowFrame'
 import { useWindowManager } from '@/components/window/useWindowManager'
 import { WINDOW_LAYOUT } from '@/components/window/windowLayout'
@@ -16,6 +17,11 @@ import ErrorPopup from '@/components/easter-eggs/ErrorPopup'
 
 export default function DesktopView() {
   const open = useWindowManager((s) => s.open)
+
+  useEffect(() => {
+    open('my-work')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <div className="hidden md:block fixed inset-0 overflow-hidden" style={{ background: 'var(--desktop-teal)' }}>

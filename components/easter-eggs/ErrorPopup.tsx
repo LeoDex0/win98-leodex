@@ -14,7 +14,7 @@ export default function ErrorPopup() {
     const timer = setTimeout(() => {
       setVisible(true)
       window.sessionStorage.setItem(SESSION_KEY, '1')
-    }, 8000)
+    }, 25000)
     return () => clearTimeout(timer)
   }, [])
 
