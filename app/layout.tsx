@@ -4,7 +4,7 @@ import './globals.css'
 export const metadata: Metadata = {
   title: 'LeoDex — Web Developer',
   description:
-    "LeoDex's freelance portfolio, styled as a Windows 98 desktop. Business websites built to feel expensive, wrapped in a nostalgic OS.",
+    "A nostalgic Windows 98 desktop, built by LeoDex just for fun — with a few real links tucked inside.",
 }
 
 export default function RootLayout({ children }: LayoutProps<'/'>) {
